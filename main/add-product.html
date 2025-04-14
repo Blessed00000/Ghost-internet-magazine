@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Корзина</title>
+        <link rel="stylesheet" href="style/main.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/main/style/fontawesome-free-6.7.1-web/css/fontawesome.css">
+        <link rel="stylesheet" href="/main/style/fontawesome-free-6.7.1-web/css/all.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="header">
+                    <div class="logo">
+                        <a href="/index.html">
+                            <img src="/main/image/logo.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="burger-menu">
+                        <button class="burger-btn">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="menu-items">
+                        <div class="dropdown">
+                            <button class="dropbtn">Каталог</button>
+                            <div class="dropdown-content">
+                                <a href="/main/catalog/electronics.html">Электроника</a>
+                                <a href="/main/catalog/pereferia.html">Переферия</a>
+                                <a href="/main/catalog/multimedia.html">Мультимедиа и Техника</a>
+                            </div>
+                        </div>
+                        <div class="search">
+                            <form action="" method="get">
+                                <input name="s" placeholder="Искать здесь..." type="search">
+                                <button type="submit"></button>
+                            </form>
+                        </div>
+                        <div class="korzina">
+                            <form action="/main/korzina.html">
+                                <button>
+                                    <i class="fa-solid fa-cart-shopping"> (<span id="cart-counter">0</span>)</i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="admin-button">
+                            <button>Добавить Товар</button>
+                        </div>
+                    </div>
+                    <div class="sighn">
+                        <form action="/login page/Login.html">
+                            <button>Войти</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+    <div class="add-product-container">
+        <h1>Добавить товар</h1>
+        <form>
+            <div class="form-group">
+                <label for="category">Категория:</label>
+                <select id="category" name="category">
+                    <option value="electronics">Электроника</option>
+                    <option value="tablets">Планшеты</option>
+                    <option value="notebooks">Ноутбуки</option>
+                    <option value="pcs">ПК</option>
+                    <option value="consoles">Игровые консоли</option>
+                    <option value="speakers">Колонки</option>
+                    <option value="tvs">Телевизоры</option>
+                    <option value="monitor">Мониторы</option>
+                    <option value="mouse">Мыши</option>
+                    <option value="headphones">Наушники</option>
+                    <option value="keyboard">Клавиатуры</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="title">Название:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Изображение:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <div id="preview"></div>
+            </div>
+            <div class="form-group">
+                <label for="details">Характеристики (по одной на строку):</label>
+                <textarea id="details" name="details" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Цена (без ₽):</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+            <button type="submit" class="btn-primary">Добавить</button>
+        </form>
+    </div>
+    <script src="/main/script/init.js" defer></script>
+    <script src="/main/script/add-product.js"></script>
+    <script src="/main/script/render.js"></script>
+</body>
+</html>

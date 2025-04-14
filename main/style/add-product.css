@@ -1,0 +1,265 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding-bottom: 5px;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    padding-top: 80px;
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+}
+
+.logo > a > img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.admin-button {
+    display: none; /* По умолчанию скрыта */
+    margin-left: 10px;
+}
+
+.admin-button button {
+    border-radius: 10px;
+    background-color: #ff4444; /* Красный для админов */
+    color: white;
+    padding: 7px 15px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-button button:hover {
+    background-color: #cc0000; /* Темнее при наведении */
+}
+
+.search > form {
+    width: auto;
+    float: right;
+    margin-right: 30px;
+    position: relative;
+}
+
+.search > form > input {
+    width: 250px;
+    height: 42px;
+    padding-left: 15px;
+    padding-right: 50px;
+    border-radius: 42px;
+    border: 2px solid #324b4e;
+    background: #ffffff;
+    outline: none;
+    position: relative;
+    transition: .3s linear;
+}
+
+.search > form > input:focus {
+    width: 300px;
+}
+
+.search > form > button {
+    width: 42px;
+    height: 42px;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search > form > button:before {
+    content: "\f002";
+    font-family: FontAwesome;
+    color: #324b4e;
+    font-size: 18px;
+}
+
+.search {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search input {
+    width: 60%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.logo, .dropdown {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.like, .korzina, .sighn {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.sighn {
+    padding: 10px;
+}
+
+.sighn button {
+    background-color: #007BFF;
+    color: white;
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sighn button:hover {
+    background-color: rgb(13, 110, 253);
+}
+
+button {
+    background: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+button i {
+    font-size: 18px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+body {
+    margin: 0;
+    padding-top: 80px;
+    font-family: "Roboto", sans-serif;
+    background-color: #f4f4f4;
+}
+
+.add-product-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.drop-zone {
+    border: 2px dashed #007BFF;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+.drop-zone.dragover {
+    background-color: #e1f0ff;
+}
+
+.drop-zone p {
+    margin: 0;
+    color: #777;
+}
+
+.btn-primary {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
