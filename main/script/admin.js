@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 adminHeaderButton.style.display = 'block';
                 console.log('Admin button shown');
             } else {
-                localStorage.setItem('isAdmin', 'true'); // Для теста
+                localStorage.setItem('isAdmin', 'true'); 
                 adminHeaderButton.style.display = 'block';
                 console.log('Admin button enabled for testing');
             }

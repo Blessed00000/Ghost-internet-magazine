@@ -114,7 +114,6 @@ if (document.querySelector('.card-electronics') || document.querySelector('.sort
                         </div>
                         <p class="cena">${good.price}</p>
                         <a href="" class="btn btn-primary add-to-cart" data-id="${good.id}">В корзину</a>
-                        <a href="/main/singlepage/${good.title.toLowerCase().replace(/ /g, '-')}.html" class="btn btn-secondary">Подробнее</a>
                         ${good.id > 106 ? `<button class="btn btn-danger delete-product" data-id="${good.id}">Удалить</button>` : ''}
                     `;
                     container.appendChild(card);
