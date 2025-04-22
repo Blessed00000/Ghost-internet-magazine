@@ -65,14 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const adminHeaderButton = document.querySelector('.admin-button');
 
         if (adminHeaderButton) {
-            if (isAdmin) {
-                adminHeaderButton.style.display = 'block';
-                console.log('Admin button shown');
-            } else {
-                localStorage.setItem('isAdmin', 'true'); 
-                adminHeaderButton.style.display = 'block';
-                console.log('Admin button enabled for testing');
-            }
+            adminHeaderButton.style.display = isAdmin ? 'block' : 'none';
+            console.log(`Admin button ${isAdmin ? 'shown' : 'hidden'}`);
         } else {
             console.log('Admin button (.admin-button) not found in DOM');
         }
@@ -90,6 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Admin button element (.admin-button button) not found in DOM');
         }
     }
+
+    // Команда для удаления админского статуса через консоль
+    window.removeAdmin = function() {
+        localStorage.setItem('isAdmin', 'false');
+        toggleAdminButtons();
+        console.log('Admin status removed, isAdmin set to false');
+    };
 
     toggleAdminButtons();
     attachAdminHeaderListener();
