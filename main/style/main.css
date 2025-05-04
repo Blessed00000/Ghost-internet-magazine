@@ -1,4 +1,3 @@
-/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +13,6 @@ body {
     color: #1F2937;
 }
 
-/* Хедер */
 .header {
     display: flex;
     align-items: center;
@@ -30,7 +28,6 @@ body {
     flex-wrap: nowrap;
 }
 
-/* Логотип */
 .logo > a > img {
     border-radius: 50%;
     width: 60px;
@@ -42,7 +39,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Админ-кнопка */
 .admin-button {
     margin-left: 10px;
 }
@@ -64,7 +60,6 @@ body {
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
 }
 
-/* Поиск */
 .search > form {
     width: auto;
     margin-right: 30px;
@@ -113,7 +108,6 @@ body {
     justify-content: center;
 }
 
-/* Кнопки входа */
 .sighn {
     padding: 10px;
 }
@@ -135,7 +129,6 @@ body {
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
 }
 
-/* Общие стили кнопок */
 button {
     background: none;
     cursor: pointer;
@@ -146,7 +139,6 @@ button i {
     font-size: 18px;
 }
 
-/* Выпадающее меню */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -192,7 +184,6 @@ button i {
     display: block;
 }
 
-/* Элементы меню в хедере */
 .menu-items {
     display: flex;
     align-items: center;
@@ -216,7 +207,6 @@ button i {
     border: none;
 }
 
-/* Бургер-меню */
 .burger-menu {
     display: none;
     margin-left: 10px;
@@ -231,7 +221,6 @@ button i {
     padding: 5px;
 }
 
-/* Карточки товаров */
 .card-container, .card-container-2 {
     display: flex;
     gap: 16px;
@@ -252,10 +241,10 @@ button i {
 .card {
     flex: 0 0 auto;
     width: 220px;
-    min-height: 350px; /* Минимальная высота для единообразия */
+    min-height: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Контент растягивается, кнопка внизу */
+    justify-content: space-between;
     background: #FFFFFF;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -288,7 +277,7 @@ button i {
 .card h3 {
     font-size: 16px;
     margin: 10px 0;
-    flex-grow: 1; /* Заголовок растягивает пространство */
+    flex-grow: 1;
 }
 
 .card .cena {
@@ -308,7 +297,7 @@ button i {
     font-size: 14px;
     font-weight: 500;
     transition: transform 0.3s, box-shadow 0.3s;
-    margin-top: auto; /* Кнопка всегда внизу */
+    margin-top: auto;
 }
 
 .prosmoter:hover {
@@ -316,7 +305,6 @@ button i {
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
 }
 
-/* Скролл-кнопки */
 .scroll-container, .scroll-container-2 {
     display: flex;
     align-items: center;
@@ -371,7 +359,6 @@ button i {
     right: 10px;
 }
 
-/* Подробные карточки */
 .product-card, 
 .product-card-electronics,
 .product-card-tablets,
@@ -527,7 +514,6 @@ button i {
     color: #3B82F6;
 }
 
-/* Корзина */
 #cart-items {
     display: flex;
     flex-wrap: wrap;
@@ -579,7 +565,6 @@ button i {
     padding: 0;
 }
 
-/* Форма добавления продукта */
 .add-product-container {
     max-width: 600px;
     margin: 40px auto;
@@ -639,7 +624,6 @@ button i {
     color: #6B7280;
 }
 
-/* Сортировка */
 .sort-container {
     display: flex;
     align-items: center;
@@ -675,7 +659,6 @@ button i {
     border-color: #3B82F6;
 }
 
-/* Футер */
 .footer {
     margin-top: 48px;
     padding: 40px 20px;
@@ -743,7 +726,6 @@ button i {
     color: #6B7280;
 }
 
-/* Модальное окно */
 .modal {
     display: none;
     position: fixed;
@@ -781,7 +763,6 @@ button i {
     }
 }
 
-/* Кнопки-ссылки */
 .link-button {
     padding: 30px;
     display: flex;
@@ -811,7 +792,6 @@ button i {
     box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
 }
 
-/* Медиа-запросы */
 @media (max-width: 768px) {
     .header {
         padding: 5px 10px;
@@ -871,15 +851,20 @@ button i {
     }
 
     .dropdown-content {
-        position: static;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         width: 100%;
-        box-shadow: none;
-        background: #FFFFFF;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
         text-align: center;
+        border-radius: 8px;
     }
 
     .dropdown-content a {
-        padding: 10px;
+        padding: 12px;
         text-align: center;
     }
 
@@ -894,7 +879,7 @@ button i {
 
     .card {
         width: 200px;
-        min-height: 300px; /* Уменьшенная высота для мобильных */
+        min-height: 300px;
     }
 
     .scroll-btn {
@@ -963,16 +948,30 @@ button i {
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         justify-content: flex-start;
-        gap: 15px;
-        padding: 0px;
+        gap: 10px;
+        padding: 10px;
     }
 
     .card {
-        flex: 0 0 auto;
-        width: 180px;
-        min-height: 280px; /* Ещё меньше для маленьких экранов */
+        flex: 0 0 calc(100% - 20px); 
+        min-height: 280px;
         padding: 10px;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
+        margin: 0 5px; 
+    }
+
+    .card-container > .card > img {
+        width: 100%;
+        height: auto;
+        max-height: 130px;
+        object-fit: contain;
+    }
+
+    .card-container-2 > .card > img {
+        width: 100%;
+        height: auto;
+        max-height: 240px;
+        object-fit: contain;
     }
 
     .product-card,
@@ -1025,7 +1024,7 @@ button i {
     }
 
     .link-button button {
-        width: 100%;
+        width: 380px;
         height: auto;
         padding: 10px;
     }
@@ -1045,11 +1044,6 @@ button i {
     .footer .social-icons a {
         font-size: 16px;
         margin: 5px;
-    }
-
-    #sort-order {
-        font-size: 14px;
-        padding: 6px 10px;
     }
 
     .sort-container label {
