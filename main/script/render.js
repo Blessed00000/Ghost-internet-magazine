@@ -23,7 +23,7 @@ if (document.querySelector('.card-electronics') || document.querySelector('.sort
             case 'pc':
                 selectedCategory = 'pcs';
                 break;
-            case 'note':
+            case 'notebook':
                 selectedCategory = 'notebooks';
                 break;
             case 'smartfon':
@@ -45,7 +45,7 @@ if (document.querySelector('.card-electronics') || document.querySelector('.sort
                 selectedCategory = 'electronics';
         }
         console.log('Установлена категория на основе URL:', selectedCategory);
-        localStorage.setItem('selectedCategory', selectedCategory); 
+        localStorage.setItem('selectedCategory', selectedCategory);
 
         let className, targetContainer, dbKey;
         switch (selectedCategory) {
@@ -93,7 +93,7 @@ if (document.querySelector('.card-electronics') || document.querySelector('.sort
             console.log(`Рендер для категории: ${selectedCategory}, база: ${dbKey}`);
             container.innerHTML = '';
             const db = JSON.parse(localStorage.getItem(dbKey)) || [];
-            console.log(`Загружено ${db.length} товаров из ${dbKey}`);
+            console.log(`Загружено ${db.length} товаров из ${dbKey}`, db);
 
             if (db.length === 0) {
                 container.innerHTML = '<p>Нет товаров в этой категории.</p>';
@@ -102,6 +102,7 @@ if (document.querySelector('.card-electronics') || document.querySelector('.sort
 
             db.forEach(good => {
                 if (good.type === selectedCategory) {
+                    console.log('Рендерим товар:', good);
                     const card = document.createElement('div');
                     card.className = className;
                     card.innerHTML = `
@@ -119,6 +120,10 @@ if (document.querySelector('.card-electronics') || document.querySelector('.sort
                     container.appendChild(card);
                 }
             });
+
+            if (!container.innerHTML) {
+                container.innerHTML = '<p>Нет товаров в этой категории.</p>';
+            }
 
             attachCartListeners();
             attachDeleteListeners();

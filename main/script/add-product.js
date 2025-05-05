@@ -64,13 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         console.log('Событие submit на форме сработало');
-
+    
         const categoryValue = category.value;
         const titleValue = title.value;
         const imageFile = imageInput.files[0];
         const detailsValue = details.value.split('\n').filter(line => line.trim() !== '');
         const priceValue = price.value;
-
+    
         console.log('Данные формы перед валидацией:', {
             categoryValue,
             titleValue,
@@ -78,19 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
             detailsValue,
             priceValue
         });
-
+    
         if (!categoryValue || !titleValue || !imageFile || !detailsValue.length || !priceValue) {
-            console.warn('Не все поля заполнены:', {
-                categoryValue,
-                titleValue,
-                imageFile,
-                detailsValue,
-                priceValue
-            });
+            console.warn('Не все поля заполнены');
             alert('Заполните все поля!');
             return;
         }
-
+    
         const reader = new FileReader();
         reader.onload = () => {
             console.log('Изображение преобразовано в DataURL');
@@ -102,33 +96,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 details: detailsValue,
                 type: categoryValue
             };
-
+    
             console.log('Новый товар для добавления:', newProduct);
             if (!window.dbManager || typeof window.dbManager.addProduct !== 'function') {
-                console.error('window.dbManager или addProduct не определены:', window.dbManager);
-                alert('Ошибка: Модуль управления базой данных не загружен! Проверь подключение init.js.');
+                console.error('window.dbManager или addProduct не определены');
+                alert('Ошибка: Модуль управления базой данных не загружен!');
                 return;
             }
-
+    
             const dbKey = window.dbManager.addProduct(newProduct);
             console.log('Товар добавлен в базу:', dbKey);
-
+    
             if (!dbKey) {
                 console.error('Ошибка: addProduct вернул undefined');
                 alert('Ошибка при добавлении товара!');
                 return;
             }
-
+    
             alert(`Товар "${titleValue}" успешно добавлен в ${dbKey}!`);
             form.reset();
             if (preview) preview.style.display = 'none';
-
+    
             // Обновляем рендер
             window.dbManager.renderProducts(categoryValue);
             console.log('Рендер обновлён для категории:', categoryValue);
-
+    
+            // Маппинг категорий для редиректа
+            const categoryMap = {
+                notebooks: 'notebook',
+                tablets: 'planshet',
+                pcs: 'pc',
+                consoles: 'consol',
+                speakers: 'kolonki',
+                tvs: 'tv',
+                monitor: 'monitor',
+                mouse: 'mouse',
+                headphones: 'headphones',
+                keyboard: 'keyboard',
+                electronics: 'smartfon'
+            };
+            const pageName = categoryMap[categoryValue] || categoryValue;
+    
             // Редирект на страницу категории
-            window.location.href = `/main/catalog/${dbKey === 'electronicsDB' ? 'electronics' : dbKey === 'multimediaDB' ? 'multimedia' : 'pereferia'}/${categoryValue}.html`;
+            console.log('Редирект на:', `/main/catalog/${dbKey === 'electronicsDB' ? 'electronics' : dbKey === 'multimediaDB' ? 'multimedia' : 'pereferia'}/${pageName}.html`);
+            window.location.href = `/main/catalog/${dbKey === 'electronicsDB' ? 'electronics' : dbKey === 'multimediaDB' ? 'multimedia' : 'pereferia'}/${pageName}.html`;
         };
         reader.onerror = (error) => console.error('Ошибка при чтении изображения:', error);
         reader.readAsDataURL(imageFile);
